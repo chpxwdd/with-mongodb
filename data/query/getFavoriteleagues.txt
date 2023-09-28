@@ -1,0 +1,57 @@
+db.getCollection('FootballFavorite').aggregate(
+  [
+    {
+      '$match': {
+        'user': new ObjectId('5cc3161a854ece2dc8f5e734')
+      }
+    }, {
+      '$unwind': {
+        'path': '$leagues'
+      }
+    }, {
+      '$lookup': {
+        'from': 'FootballLeague',
+        'localField': 'leagues',
+        'foreignField': '_id',
+        'as': 'leaguesObjList'
+      }
+    }, {
+      '$unwind': {
+        'path': '$leaguesObjList'
+      }
+    }, {
+      '$group': {
+        '_id': '$_id',
+        'leagues': {
+          '$push': '$leaguesObjList'
+        }
+      }
+    }, {
+      '$unwind': {
+        'path': '$leagues'
+      }
+    }, {
+      '$lookup': {
+        'from': 'FootballCountry',
+        'localField': 'leagues.country',
+        'foreignField': '_id',
+        'as': 'country'
+      }
+    }, {
+      '$unwind': {
+        'path': '$country'
+      }
+    }, {
+      '$group': {
+        '_id': '$_id',
+        'leagues': {
+          '$push': {
+            'league': '$leagues',
+            'country': '$country'
+          }
+        }
+      }
+    }
+  ],
+  {maxTimeMS: 60000, allowDiskUse: true}
+);
