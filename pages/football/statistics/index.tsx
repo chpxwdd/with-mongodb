@@ -4,12 +4,11 @@ import { getSession, useSession } from 'next-auth/react'
 import RootLayout from '@/layouts/RootLayout'
 import { IStorageCountry, IStorageLeague } from '@/models/mongo/storage.types'
 import { Badge, Button, Col, Form, ListGroup, Row } from 'react-bootstrap'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
 import Image from 'next/image'
 import worldFlag from '@/image/world.svg'
 import { FlashMessageContext, IFlashMessage } from '@/context/FlashMessageContext'
 import { EBootstrapVariant } from '@/models/bootstpap/bs.types'
+
 export async function getServerSideProps(context) {
 	const session = await getSession({ req: context.req })
 
@@ -38,28 +37,28 @@ const Statistics: NextPage<Props> = ({}) => {
 	const [favoriteLeagues, setFavoriteLeagues] = React.useState<IResponse[]>()
 	const [leaguesApiId, setLeaguesApiId] = React.useState<number[]>([])
 	const { update, data: session, status } = useSession()
-	const { flashMessages, setFlashMessages } = React.useContext(FlashMessageContext)
+	// const { flashMessages, setFlashMessages } = React.useContext(FlashMessageContext)
 
 	React.useEffect(() => {
 		console.log('session ', session)
 		fetchStorageFavoritesLeagues()
 
-		const hello1: IFlashMessage = {
-			text: ['hello', 'goodbuy'],
-			variant: EBootstrapVariant.WARNING,
-			timeout: 0,
-		}
-		const hello2: IFlashMessage = {
-			text: ['hello', 'goodbuy'],
-			variant: EBootstrapVariant.DANGER,
-			timeout: 0,
-		}
-		const hello3: IFlashMessage = {
-			text: ['hello', 'goodbuy'],
-			variant: EBootstrapVariant.PRIMARY,
-			timeout: 0,
-		}
-		setFlashMessages([hello1, hello2, hello3, hello1])
+		// const hello1: IFlashMessage = {
+		// 	text: ['hello', 'goodbuy'],
+		// 	variant: EBootstrapVariant.WARNING,
+		// 	timeout: 0,
+		// }
+		// const hello2: IFlashMessage = {
+		// 	text: ['hello', 'goodbuy'],
+		// 	variant: EBootstrapVariant.DANGER,
+		// 	timeout: 0,
+		// }
+		// const hello3: IFlashMessage = {
+		// 	text: ['hello', 'goodbuy'],
+		// 	variant: EBootstrapVariant.PRIMARY,
+		// 	timeout: 0,
+		// }
+		// setFlashMessages([hello1, hello2, hello3, hello1])
 	}, [])
 
 	React.useEffect(() => {

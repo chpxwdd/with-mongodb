@@ -4,23 +4,22 @@ import { useRouter } from 'next/router'
 import { NextResponse } from 'next/server'
 import { signIn, signOut } from 'next-auth/react'
 
-interface ILoginFormProps {
-	loading: boolean
-}
-
-const LoginForm = ({ loading }: ILoginFormProps) => {
+const LoginForm = () => {
+	const [loading, setLoading] = React.useState<boolean>(false)
 	const [email, setEmail] = React.useState<string>('')
 	const [password, setPassword] = React.useState<string>('')
 
 	const router = useRouter()
+
 	const login = async (e: React.FormEvent) => {
 		e.preventDefault()
-
+		setLoading(true)
 		const result = await signIn('credentials', {
 			redirect: false,
 			email: email,
 			password: password,
 		})
+		setLoading(false)
 
 		if (!result.error) router.replace('/user/profile')
 	}
@@ -51,11 +50,7 @@ const LoginForm = ({ loading }: ILoginFormProps) => {
 				/>
 			</Form.Group>
 			<Form.Group as={Row} className="mb-3">
-				<Button
-					type="submit"
-					className="btn btn-lg btn-primary"
-					disabled={loading}
-				>
+				<Button type="submit" className="btn btn-lg btn-primary" disabled={loading}>
 					Войти
 				</Button>
 			</Form.Group>
