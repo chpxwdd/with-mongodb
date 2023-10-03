@@ -1,0 +1,61 @@
+[{
+  "_id": {
+    "$oid": "5cc2f8f9b5805d1bb04bd9fc"
+  },
+  "date": {
+    "$date": "2019-04-26T12:26:33.162Z"
+  },
+  "email": "member@local.domain",
+  "password": "$2a$10$asNsPDmDmVQ38Du/gpX2/uU4DlJqxYNlEqo7tbk9h6zE9omT0LZiC",
+  "username": "member",
+  "roles": [
+    {
+      "$oid": "64fdb126fc00f4907d505810"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "5cc2f8f9b5805d1bb04bd9fd"
+  },
+  "date": {
+    "$date": "2019-04-26T12:26:33.163Z"
+  },
+  "email": "admin@local.domain",
+  "password": "$2a$10$asNsPDmDmVQ38Du/gpX2/uU4DlJqxYNlEqo7tbk9h6zE9omT0LZiC",
+  "username": "admin",
+  "roles": [
+    {
+      "$oid": "5cc2f8f9b5805d1bb04bd9fb"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "5cc3161a854ece2dc8f5e734"
+  },
+  "date": {
+    "$date": "2019-04-26T14:30:50.928Z"
+  },
+  "email": "cheraleval@hotmail.com",
+  "password": "$2a$10$obrhZ2I46TMGIXkBKOrLq./iYQa1s4gvtc35UTT/CuEFGgXAQ7skW",
+  "username": "cheraleval",
+  "roles": [
+    {
+      "$oid": "5cc2f8f9b5805d1bb04bd9fb"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64ef06bbecfaf649a19c0b5f"
+  },
+  "email": "msg4cherep@gmail.com",
+  "password": "$2a$12$BZjxGjE83a7.kt9v.QlimuBm52XcJofSRSmaRbL8SCfnje6vhg3yu",
+  "roles": [
+    {
+      "$oid": "5cc2f8f9b5805d1bb04bd9fa"
+    }
+  ],
+  "__v": 0
+}]
