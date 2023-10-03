@@ -11,20 +11,10 @@ import { EBootstrapVariant } from '@/models/bootstpap/bs.types'
 
 export async function getServerSideProps(context) {
 	const session = await getSession({ req: context.req })
-
-	if (!session) {
-		return {
-			redirect: {
-				destination: '/auth/login',
-				permanent: false,
-			},
-		}
-	}
-
-	return {
-		props: { session },
-	}
+	if (!session) return { redirect: { destination: '/auth/login', permanent: false } }
+	return { props: { session } }
 }
+
 interface Props {}
 
 interface IResponse {
@@ -37,28 +27,11 @@ const Statistics: NextPage<Props> = ({}) => {
 	const [favoriteLeagues, setFavoriteLeagues] = React.useState<IResponse[]>()
 	const [leaguesApiId, setLeaguesApiId] = React.useState<number[]>([])
 	const { update, data: session, status } = useSession()
-	// const { flashMessages, setFlashMessages } = React.useContext(FlashMessageContext)
+	const { flashMessages, setFlashMessages } = React.useContext(FlashMessageContext)
 
 	React.useEffect(() => {
 		console.log('session ', session)
 		fetchStorageFavoritesLeagues()
-
-		// const hello1: IFlashMessage = {
-		// 	text: ['hello', 'goodbuy'],
-		// 	variant: EBootstrapVariant.WARNING,
-		// 	timeout: 0,
-		// }
-		// const hello2: IFlashMessage = {
-		// 	text: ['hello', 'goodbuy'],
-		// 	variant: EBootstrapVariant.DANGER,
-		// 	timeout: 0,
-		// }
-		// const hello3: IFlashMessage = {
-		// 	text: ['hello', 'goodbuy'],
-		// 	variant: EBootstrapVariant.PRIMARY,
-		// 	timeout: 0,
-		// }
-		// setFlashMessages([hello1, hello2, hello3, hello1])
 	}, [])
 
 	React.useEffect(() => {

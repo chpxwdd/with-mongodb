@@ -4,7 +4,8 @@ import FlashMessage from '@/components/FlashMessage'
 
 export interface IFlashMessage {
 	variant: EBootstrapVariant
-	text: string[]
+	header: string
+	text: string
 	timeout?: number
 }
 
@@ -19,7 +20,32 @@ const flashMessageInitialContext: IFlashMessageContext = {
 	flashMessages: [
 		{
 			variant: EBootstrapVariant.PRIMARY,
-			text: ['welcome'],
+			header: 'PRIMARY',
+			text: 'It is a PRIMARY color Alert',
+			timeout: 0,
+		},
+		{
+			variant: EBootstrapVariant.SUCCESS,
+			header: 'SUCCESS',
+			text: 'It is a SUCCESS color Alert',
+			timeout: 0,
+		},
+		{
+			variant: EBootstrapVariant.DANGER,
+			header: 'DANGER',
+			text: 'It is a DANGER color Alert',
+			timeout: 0,
+		},
+		{
+			variant: EBootstrapVariant.WARNING,
+			header: 'WARN',
+			text: 'It is a DANGER color Alert',
+			timeout: 0,
+		},
+		{
+			variant: EBootstrapVariant.INFO,
+			header: 'INFO',
+			text: 'It is a DANGER color Alert',
 			timeout: 0,
 		},
 	],

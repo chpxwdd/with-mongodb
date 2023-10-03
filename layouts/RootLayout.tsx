@@ -7,23 +7,11 @@ import { FootballContextProvider } from '@/context/FootballContext'
 import { FlashMessageContext, FlashMessageContextProvider } from '@/context/FlashMessageContext'
 import FlashMessage from '@/components/FlashMessage'
 
-// export async function getServerSideProps(context) {
-// 	const session = await getSession({ req: context.req })
-
-// 	if (!session) {
-// 		return {
-// 			redirect: {
-// 				destination: '/auth/login',
-// 				permanent: false,
-// 			},
-// 		}
-// 	}
-
-// 	return {
-// 		props: { session },
-// 	}
-// }
-
+export async function getServerSideProps(context) {
+	const session = await getSession({ req: context.req })
+	if (!session) return { redirect: { destination: '/auth/login', permanent: false } }
+	return { props: { session } }
+}
 interface IProps {
 	title: string
 	lead?: string
@@ -42,9 +30,7 @@ const RootLayout = ({ title, lead, children }: IProps) => {
 			<Topnavbar />
 			<FlashMessageContextProvider>
 				<main>
-					{flashMessages.length > 0 &&
-						flashMessages.map((item, index) => <FlashMessage key={index} flashMessage={item} />)}
-					<Container fluid>
+					<Container>
 						<header className="mt-2">
 							<Header title={title} lead={lead} />
 						</header>
@@ -54,6 +40,15 @@ const RootLayout = ({ title, lead, children }: IProps) => {
 						</section>
 					</Container>
 				</main>
+				<footer>
+					{flashMessages.length > 0 && (
+						<Container>
+							{flashMessages.map((item, index) => (
+								<FlashMessage key={index} flashMessage={item} />
+							))}
+						</Container>
+					)}
+				</footer>
 			</FlashMessageContextProvider>
 		</>
 	)
