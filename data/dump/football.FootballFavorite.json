@@ -1,0 +1,51 @@
+[{
+  "_id": {
+    "$oid": "65103d437b0df7be9d3b265c"
+  },
+  "user": {
+    "$oid": "5cc3161a854ece2dc8f5e734"
+  },
+  "__v": 0,
+  "countries": [
+    {
+      "$oid": "64fcaa1c0c01f7f27274c11e"
+    },
+    {
+      "$oid": "64fcaa1c0c01f7f27274c117"
+    },
+    {
+      "$oid": "64fcaa1c0c01f7f27274c134"
+    },
+    {
+      "$oid": "64fcaa1c0c01f7f27274c122"
+    },
+    {
+      "$oid": "64fcaa1c0c01f7f27274c176"
+    },
+    {
+      "$oid": "64fcaa1c0c01f7f27274c169"
+    }
+  ],
+  "leagues": [
+    {
+      "$oid": "65103b537e657b59cd7f3c29"
+    },
+    {
+      "$oid": "65103b537e657b59cd7f3c2b"
+    },
+    {
+      "$oid": "65103b537e657b59cd7f3e31"
+    },
+    {
+      "$oid": "65103b537e657b59cd7f3c21"
+    },
+    {
+      "$oid": "65103b537e657b59cd7f3c27"
+    },
+    {
+      "$oid": "65103b537e657b59cd7f3c31"
+    }
+  ],
+  "seasons": [],
+  "teams": []
+}]

@@ -1,0 +1,599 @@
+[{
+  "_id": {
+    "$oid": "6518595170f3d2eeddc68f3d"
+  },
+  "api_id": 597,
+  "name": "Lokomotiv Moscow",
+  "logo": "https://media-4.api-sports.io/football/teams/597.png",
+  "league": [
+    235
+  ]
+},
+{
+  "_id": {
+    "$oid": "6518595470f3d2eeddc68f3e"
+  },
+  "api_id": 555,
+  "name": "CSKA Moscow",
+  "logo": "https://media-4.api-sports.io/football/teams/555.png",
+  "league": [
+    235
+  ]
+},
+{
+  "_id": {
+    "$oid": "6518595570f3d2eeddc68f3f"
+  },
+  "api_id": 1083,
+  "name": "Rubin",
+  "logo": "https://media-4.api-sports.io/football/teams/1083.png",
+  "league": [
+    235
+  ]
+},
+{
+  "_id": {
+    "$oid": "6518595870f3d2eeddc68f40"
+  },
+  "api_id": 2012,
+  "name": "PFC Sochi",
+  "logo": "https://media-4.api-sports.io/football/teams/2012.png",
+  "league": [
+    235
+  ]
+},
+{
+  "_id": {
+    "$oid": "651864cf70f3d2eeddc68f41"
+  },
+  "api_id": 867,
+  "name": "Lecce",
+  "logo": "https://media-4.api-sports.io/football/teams/867.png",
+  "league": [
+    135
+  ]
+},
+{
+  "_id": {
+    "$oid": "65192e6970f3d2eeddc68f42"
+  },
+  "api_id": 489,
+  "name": "AC Milan",
+  "logo": "https://media-4.api-sports.io/football/teams/489.png",
+  "league": [
+    135
+  ]
+},
+{
+  "_id": {
+    "$oid": "65192e7070f3d2eeddc68f43"
+  },
+  "api_id": 505,
+  "name": "Inter",
+  "logo": "https://media-4.api-sports.io/football/teams/505.png",
+  "league": [
+    135
+  ]
+},
+{
+  "_id": {
+    "$oid": "65192e7370f3d2eeddc68f44"
+  },
+  "api_id": 511,
+  "name": "Empoli",
+  "logo": "https://media-4.api-sports.io/football/teams/511.png",
+  "league": [
+    135
+  ]
+},
+{
+  "_id": {
+    "$oid": "65192e7470f3d2eeddc68f45"
+  },
+  "api_id": 497,
+  "name": "AS Roma",
+  "logo": "https://media-4.api-sports.io/football/teams/497.png",
+  "league": [
+    135
+  ]
+},
+{
+  "_id": {
+    "$oid": "65192e7670f3d2eeddc68f46"
+  },
+  "api_id": 541,
+  "name": "Real Madrid",
+  "logo": "https://media-4.api-sports.io/football/teams/541.png",
+  "league": [
+    140
+  ]
+},
+{
+  "_id": {
+    "$oid": "65192e7670f3d2eeddc68f47"
+  },
+  "api_id": 529,
+  "name": "Barcelona",
+  "logo": "https://media-4.api-sports.io/football/teams/529.png",
+  "league": [
+    140
+  ]
+},
+{
+  "_id": {
+    "$oid": "65192e7870f3d2eeddc68f48"
+  },
+  "api_id": 530,
+  "name": "Atletico Madrid",
+  "logo": "https://media-4.api-sports.io/football/teams/530.png",
+  "league": [
+    140
+  ]
+},
+{
+  "_id": {
+    "$oid": "65192e7a70f3d2eeddc68f49"
+  },
+  "api_id": 532,
+  "name": "Valencia",
+  "logo": "https://media-4.api-sports.io/football/teams/532.png",
+  "league": [
+    140
+  ]
+},
+{
+  "_id": {
+    "$oid": "65192e9170f3d2eeddc68f4a"
+  },
+  "api_id": 47,
+  "name": "Tottenham",
+  "logo": "https://media-4.api-sports.io/football/teams/47.png",
+  "league": [
+    39
+  ]
+},
+{
+  "_id": {
+    "$oid": "65192e9470f3d2eeddc68f4b"
+  },
+  "api_id": 42,
+  "name": "Arsenal",
+  "logo": "https://media-4.api-sports.io/football/teams/42.png",
+  "league": [
+    39
+  ]
+},
+{
+  "_id": {
+    "$oid": "65192e9570f3d2eeddc68f4c"
+  },
+  "api_id": 40,
+  "name": "Liverpool",
+  "logo": "https://media-4.api-sports.io/football/teams/40.png",
+  "league": [
+    39
+  ]
+},
+{
+  "_id": {
+    "$oid": "65192e9570f3d2eeddc68f4d"
+  },
+  "api_id": 50,
+  "name": "Manchester City",
+  "logo": "https://media-4.api-sports.io/football/teams/50.png",
+  "league": [
+    39
+  ]
+},
+{
+  "_id": {
+    "$oid": "65192e9c70f3d2eeddc68f4e"
+  },
+  "api_id": 49,
+  "name": "Chelsea",
+  "logo": "https://media-4.api-sports.io/football/teams/49.png",
+  "league": [
+    39
+  ]
+},
+{
+  "_id": {
+    "$oid": "65197a6e70f3d2eeddc68f4f"
+  },
+  "api_id": 1080,
+  "name": "Orenburg",
+  "logo": "https://media-4.api-sports.io/football/teams/1080.png",
+  "league": [
+    235
+  ]
+},
+{
+  "_id": {
+    "$oid": "65197a8070f3d2eeddc68f50"
+  },
+  "api_id": 621,
+  "name": "Krasnodar",
+  "logo": "https://media-4.api-sports.io/football/teams/621.png",
+  "league": [
+    235
+  ]
+},
+{
+  "_id": {
+    "$oid": "65197a8170f3d2eeddc68f51"
+  },
+  "api_id": 1079,
+  "name": "Krylya Sovetov",
+  "logo": "https://media-4.api-sports.io/football/teams/1079.png",
+  "league": [
+    235
+  ]
+},
+{
+  "_id": {
+    "$oid": "65197ae570f3d2eeddc68f52"
+  },
+  "api_id": 2011,
+  "name": "Nizhny Novgorod",
+  "logo": "https://media-4.api-sports.io/football/teams/2011.png",
+  "league": [
+    235
+  ]
+},
+{
+  "_id": {
+    "$oid": "65197aea70f3d2eeddc68f53"
+  },
+  "api_id": 779,
+  "name": "FC Rostov",
+  "logo": "https://media-4.api-sports.io/football/teams/779.png",
+  "league": [
+    235
+  ]
+},
+{
+  "_id": {
+    "$oid": "651a960d70f3d2eeddc68f54"
+  },
+  "api_id": 505,
+  "name": "Inter",
+  "logo": "https://media-4.api-sports.io/football/teams/505.png",
+  "league": [
+    135
+  ]
+},
+{
+  "_id": {
+    "$oid": "651a963070f3d2eeddc68f55"
+  },
+  "api_id": 490,
+  "name": "Cagliari",
+  "logo": "https://media-4.api-sports.io/football/teams/490.png",
+  "league": [
+    135
+  ]
+},
+{
+  "_id": {
+    "$oid": "651a96a470f3d2eeddc68f56"
+  },
+  "api_id": 496,
+  "name": "Juventus",
+  "logo": "https://media-4.api-sports.io/football/teams/496.png",
+  "league": [
+    135
+  ]
+},
+{
+  "_id": {
+    "$oid": "651a978770f3d2eeddc68f57"
+  },
+  "api_id": 494,
+  "name": "Udinese",
+  "logo": "https://media-4.api-sports.io/football/teams/494.png",
+  "league": [
+    135
+  ]
+},
+{
+  "_id": {
+    "$oid": "651a986470f3d2eeddc68f58"
+  },
+  "api_id": 488,
+  "name": "Sassuolo",
+  "logo": "https://media-4.api-sports.io/football/teams/488.png",
+  "league": [
+    135
+  ]
+},
+{
+  "_id": {
+    "$oid": "651a986970f3d2eeddc68f59"
+  },
+  "api_id": 867,
+  "name": "Lecce",
+  "logo": "https://media-4.api-sports.io/football/teams/867.png",
+  "league": [
+    135
+  ]
+},
+{
+  "_id": {
+    "$oid": "651a987a70f3d2eeddc68f5a"
+  },
+  "api_id": 512,
+  "name": "Frosinone",
+  "logo": "https://media-4.api-sports.io/football/teams/512.png",
+  "league": [
+    135
+  ]
+},
+{
+  "_id": {
+    "$oid": "651a987e70f3d2eeddc68f5b"
+  },
+  "api_id": 503,
+  "name": "Torino",
+  "logo": "https://media-4.api-sports.io/football/teams/503.png",
+  "league": [
+    135
+  ]
+},
+{
+  "_id": {
+    "$oid": "651a987e70f3d2eeddc68f5c"
+  },
+  "api_id": 495,
+  "name": "Genoa",
+  "logo": "https://media-4.api-sports.io/football/teams/495.png",
+  "league": [
+    135
+  ]
+},
+{
+  "_id": {
+    "$oid": "651a988070f3d2eeddc68f5d"
+  },
+  "api_id": 487,
+  "name": "Lazio",
+  "logo": "https://media-4.api-sports.io/football/teams/487.png",
+  "league": [
+    135
+  ]
+},
+{
+  "_id": {
+    "$oid": "651a98a070f3d2eeddc68f5e"
+  },
+  "api_id": 494,
+  "name": "Udinese",
+  "logo": "https://media-4.api-sports.io/football/teams/494.png",
+  "league": [
+    135
+  ]
+},
+{
+  "_id": {
+    "$oid": "651a98a170f3d2eeddc68f5f"
+  },
+  "api_id": 514,
+  "name": "Salernitana",
+  "logo": "https://media-4.api-sports.io/football/teams/514.png",
+  "league": [
+    135
+  ]
+},
+{
+  "_id": {
+    "$oid": "651a98ad70f3d2eeddc68f60"
+  },
+  "api_id": 1579,
+  "name": "Monza",
+  "logo": "https://media-4.api-sports.io/football/teams/1579.png",
+  "league": [
+    135
+  ]
+},
+{
+  "_id": {
+    "$oid": "651a98b470f3d2eeddc68f61"
+  },
+  "api_id": 1579,
+  "name": "Monza",
+  "logo": "https://media-4.api-sports.io/football/teams/1579.png",
+  "league": [
+    135
+  ]
+},
+{
+  "_id": {
+    "$oid": "651a98f670f3d2eeddc68f62"
+  },
+  "api_id": 504,
+  "name": "Verona",
+  "logo": "https://media-4.api-sports.io/football/teams/504.png",
+  "league": [
+    135
+  ]
+},
+{
+  "_id": {
+    "$oid": "651a996d70f3d2eeddc68f63"
+  },
+  "api_id": 499,
+  "name": "Atalanta",
+  "logo": "https://media-4.api-sports.io/football/teams/499.png",
+  "league": [
+    135
+  ]
+},
+{
+  "_id": {
+    "$oid": "651a9a0570f3d2eeddc68f64"
+  },
+  "api_id": 492,
+  "name": "Napoli",
+  "logo": "https://media-4.api-sports.io/football/teams/492.png",
+  "league": [
+    135
+  ]
+},
+{
+  "_id": {
+    "$oid": "651aa71d70f3d2eeddc68f65"
+  },
+  "api_id": 724,
+  "name": "Cadiz",
+  "logo": "https://media-4.api-sports.io/football/teams/724.png",
+  "league": [
+    140
+  ]
+},
+{
+  "_id": {
+    "$oid": "651aa9b570f3d2eeddc68f66"
+  },
+  "api_id": 500,
+  "name": "Bologna",
+  "logo": "https://media-4.api-sports.io/football/teams/500.png",
+  "league": [
+    135
+  ]
+},
+{
+  "_id": {
+    "$oid": "651aa9c870f3d2eeddc68f67"
+  },
+  "api_id": 502,
+  "name": "Fiorentina",
+  "logo": "https://media-4.api-sports.io/football/teams/502.png",
+  "league": [
+    135
+  ]
+},
+{
+  "_id": {
+    "$oid": "651aa9f770f3d2eeddc68f68"
+  },
+  "api_id": 531,
+  "name": "Athletic Club",
+  "logo": "https://media-4.api-sports.io/football/teams/531.png",
+  "league": [
+    140
+  ]
+},
+{
+  "_id": {
+    "$oid": "651aa9fa70f3d2eeddc68f69"
+  },
+  "api_id": 548,
+  "name": "Real Sociedad",
+  "logo": "https://media-4.api-sports.io/football/teams/548.png",
+  "league": [
+    140
+  ]
+},
+{
+  "_id": {
+    "$oid": "651ad420b16a1174dda86730"
+  },
+  "api_id": 1993,
+  "name": "Fakel Voronezh",
+  "logo": "https://media-4.api-sports.io/football/teams/1993.png",
+  "league": [
+    "65103b537e657b59cd7f3e31"
+  ]
+},
+{
+  "_id": {
+    "$oid": "651ad428b16a1174dda86731"
+  },
+  "api_id": 1993,
+  "name": "Fakel Voronezh",
+  "logo": "https://media-4.api-sports.io/football/teams/1993.png",
+  "league": [
+    "65103b537e657b59cd7f3e31"
+  ]
+},
+{
+  "_id": {
+    "$oid": "651ad8899fb9c8ac9e45dc96"
+  },
+  "api_id": 1993,
+  "name": "Fakel Voronezh",
+  "logo": "https://media-4.api-sports.io/football/teams/1993.png",
+  "league": [
+    "65103b537e657b59cd7f3e31"
+  ]
+},
+{
+  "_id": {
+    "$oid": "651ad8ea9fb9c8ac9e45dc97"
+  },
+  "api_id": 1993,
+  "name": "Fakel Voronezh",
+  "logo": "https://media-4.api-sports.io/football/teams/1993.png",
+  "league": [
+    "65103b537e657b59cd7f3e31"
+  ]
+},
+{
+  "_id": {
+    "$oid": "651ad9409fb9c8ac9e45dc98"
+  },
+  "api_id": 596,
+  "name": "Zenit Saint Petersburg",
+  "logo": "https://media-4.api-sports.io/football/teams/596.png",
+  "league": [
+    "65103b537e657b59cd7f3e31"
+  ]
+},
+{
+  "_id": {
+    "$oid": "651ad99a9fb9c8ac9e45dc99"
+  },
+  "api_id": 558,
+  "name": "Spartak Moscow",
+  "logo": "https://media-4.api-sports.io/football/teams/558.png",
+  "league": [
+    "65103b537e657b59cd7f3e31"
+  ]
+},
+{
+  "_id": {
+    "$oid": "651ad9a69fb9c8ac9e45dc9a"
+  },
+  "api_id": 596,
+  "name": "Zenit Saint Petersburg",
+  "logo": "https://media-4.api-sports.io/football/teams/596.png",
+  "league": [
+    "65103b537e657b59cd7f3e31"
+  ]
+},
+{
+  "_id": {
+    "$oid": "651adab49fb9c8ac9e45dc9b"
+  },
+  "api_id": 596,
+  "name": "Zenit Saint Petersburg",
+  "logo": "https://media-4.api-sports.io/football/teams/596.png",
+  "league": "65103b537e657b59cd7f3e31"
+},
+{
+  "_id": {
+    "$oid": "651adacc9fb9c8ac9e45dc9c"
+  },
+  "api_id": 596,
+  "name": "Zenit Saint Petersburg",
+  "logo": "https://media-4.api-sports.io/football/teams/596.png",
+  "league": "65103b537e657b59cd7f3e31"
+},
+{
+  "_id": {
+    "$oid": "651adaf19fb9c8ac9e45dc9d"
+  },
+  "api_id": 596,
+  "name": "Zenit Saint Petersburg",
+  "logo": "https://media-4.api-sports.io/football/teams/596.png",
+  "league": "65103b537e657b59cd7f3e31"
+}]
