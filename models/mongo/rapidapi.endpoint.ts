@@ -4,7 +4,8 @@ export enum EFootballAPIEndpoints {
 	PLAYERS = 'players',
 	COUNTRIES = 'countries',
 	LEAGUES = 'countries/league',
-	FIXTURES = 'fixtures'
+	FIXTURES = 'fixtures',
+	STANDINGS = 'standings'
 }
 export interface IServerResponse {
 	data: {

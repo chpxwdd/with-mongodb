@@ -10,7 +10,6 @@ import Image from 'next/image'
 import worldFlag from '@/image/world.svg'
 import { FlashMessageContext, IFlashMessage } from '@/context/FlashMessageContext'
 import { EBootstrapVariant } from '@/models/bootstpap/bs.types'
-
 export async function getServerSideProps(context) {
 	const session = await getSession({ req: context.req })
 
@@ -177,5 +176,4 @@ const Statistics: NextPage<Props> = ({}) => {
 		</RootLayout>
 	)
 }
-
 export default Statistics

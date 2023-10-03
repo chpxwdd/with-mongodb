@@ -3,7 +3,8 @@ import * as React from 'react';
 
 
 interface IProps {
-    endpoint: EStorageEndpoint,
+    // endpoint: EStorageEndpoint,
+    endpoint: string,
     method: EStogageMethod,
     body?: Object | null
 }
@@ -15,7 +16,7 @@ const useStorageFetch = () => {
     const [data, setData] = React.useState<any[]>([])
 
 
-    const fetchStorage = async (endpoint: EStorageEndpoint, method: EStogageMethod, body?: Object | null) => {
+    const fetchStorage = async (endpoint: string, method: EStogageMethod, body?: Object | null) => {
         const options: RequestInit = {
             method: method,
             headers: {'Content-Type': 'application/json'}

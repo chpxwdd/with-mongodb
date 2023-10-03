@@ -9,11 +9,11 @@ export interface IStorageUser {
 }
 
 export interface IStorageCountry {
-    _id: string
+    _id?: string
+    __v?: number
     code: string,
     flag: string
     name: string,
-    __v?: number
 }
 
 export enum ELeagueType {
@@ -22,30 +22,31 @@ export enum ELeagueType {
 }
 
 export interface IStorageLeague {
-    _id: string
+    _id?: string
+    __v?: number
     api_id: number
     logo: string
     name: string
     type: ELeagueType
     country?: string
-    __v?: number
 }
 
 export interface IStorageSeason {
-    _id: string
+    _id?: string
+    __v?: number
     current: boolean;
     end: string;
     start: string;
     year: number;
-    __v?: number
 }
 
 export interface IStorageTeam {
-    _id: string
+    _id?: string
+    __v?: number
     api_id: number;
     logo: string;
     name: string;
-    __v?: number
+    league: number[]
 }
 export interface IStorageCountryLeagueSeason {
     country: IStorageCountry;
