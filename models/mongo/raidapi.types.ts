@@ -46,3 +46,9 @@ export interface ICountryLeagueSeason {
     league: ILeague;
     seasons: ISeason[]
 }
+
+
+
+export interface IRapidStanding {
+
+}

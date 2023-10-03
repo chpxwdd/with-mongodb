@@ -1,13 +1,15 @@
 import Link from 'next/link'
 import {Nav, Navbar, Container, Button} from 'react-bootstrap'
 import {signOut, useSession} from 'next-auth/react'
-const Topnavbar = () => {
+
+const TopNavbar = () => {
 
     const {data: session, status} = useSession()
 
     return (
-        <Navbar bg="dark" sticky="top" variant="dark">
-            <Container fluid>
+        <Navbar bg="dark" variant="dark">
+            {/* <Container fluid> */}
+            <Container >
                 <Navbar.Brand href="/">Football API</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -34,4 +36,4 @@ const Topnavbar = () => {
         </Navbar >
     )
 }
-export default Topnavbar
+export default TopNavbar
