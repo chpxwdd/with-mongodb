@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { Container } from 'react-bootstrap'
+import {Container} from 'react-bootstrap'
 import Topnavbar from '@/components/Topnavbar'
 import Header from '@/components/Header'
-import { getSession } from 'next-auth/react'
-import { FootballContextProvider } from '@/context/FootballContext'
-import { FlashMessageContext, FlashMessageContextProvider } from '@/context/FlashMessageContext'
+import {getSession} from 'next-auth/react'
+import {FootballContextProvider} from '@/context/FootballContext'
+import {FlashMessageContext, FlashMessageContextProvider} from '@/context/FlashMessageContext'
 import FlashMessage from '@/components/FlashMessage'
 
 // export async function getServerSideProps(context) {
@@ -30,8 +30,8 @@ interface IProps {
 	children: React.ReactNode
 }
 
-const RootLayout = ({ title, lead, children }: IProps) => {
-	const { flashMessages } = React.useContext(FlashMessageContext)
+const RootLayout = ({title, lead, children}: IProps) => {
+	const {flashMessages} = React.useContext(FlashMessageContext)
 
 	React.useEffect(() => {
 		console.log('flashMessages UE in RootLayout ', flashMessages)
@@ -43,6 +43,7 @@ const RootLayout = ({ title, lead, children }: IProps) => {
 			<FlashMessageContextProvider>
 				<main>
 					{flashMessages.length > 0 &&
+
 						flashMessages.map((item, index) => <FlashMessage key={index} flashMessage={item} />)}
 					<Container fluid>
 						<header className="mt-2">
