@@ -5,23 +5,24 @@ import Header from '@/components/Header'
 import { getSession } from 'next-auth/react'
 import { FootballContextProvider } from '@/context/FootballContext'
 import { FlashMessageContext, FlashMessageContextProvider } from '@/context/FlashMessageContext'
+import FlashMessage from '@/components/FlashMessage'
 
-export async function getServerSideProps(context) {
-	const session = await getSession({ req: context.req })
+// export async function getServerSideProps(context) {
+// 	const session = await getSession({ req: context.req })
 
-	if (!session) {
-		return {
-			redirect: {
-				destination: '/auth/login',
-				permanent: false,
-			},
-		}
-	}
+// 	if (!session) {
+// 		return {
+// 			redirect: {
+// 				destination: '/auth/login',
+// 				permanent: false,
+// 			},
+// 		}
+// 	}
 
-	return {
-		props: { session },
-	}
-}
+// 	return {
+// 		props: { session },
+// 	}
+// }
 
 interface IProps {
 	title: string
@@ -31,22 +32,29 @@ interface IProps {
 
 const RootLayout = ({ title, lead, children }: IProps) => {
 	const { flashMessages } = React.useContext(FlashMessageContext)
+
+	React.useEffect(() => {
+		console.log('flashMessages UE in RootLayout ', flashMessages)
+	}, [flashMessages])
+
 	return (
 		<>
 			<Topnavbar />
-			<main>
-				<Container fluid>
-					<header className="mt-2">
-						<Header title={title} lead={lead} />
-					</header>
-					<hr />
-					<section className="mt-2">
-						<FlashMessageContextProvider>
+			<FlashMessageContextProvider>
+				<main>
+					{flashMessages.length > 0 &&
+						flashMessages.map((item, index) => <FlashMessage key={index} flashMessage={item} />)}
+					<Container fluid>
+						<header className="mt-2">
+							<Header title={title} lead={lead} />
+						</header>
+						<hr />
+						<section className="mt-2">
 							<FootballContextProvider>{children}</FootballContextProvider>
-						</FlashMessageContextProvider>
-					</section>
-				</Container>
-			</main>
+						</section>
+					</Container>
+				</main>
+			</FlashMessageContextProvider>
 		</>
 	)
 }
