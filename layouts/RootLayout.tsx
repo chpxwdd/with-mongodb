@@ -8,9 +8,9 @@ import {FlashMessageContext, FlashMessageContextProvider} from '@/context/FlashM
 import FlashMessage from '@/components/FlashMessage'
 
 export async function getServerSideProps(context) {
-	const session = await getSession({ req: context.req })
-	if (!session) return { redirect: { destination: '/auth/login', permanent: false } }
-	return { props: { session } }
+	const session = await getSession({req: context.req})
+	if (!session) return {redirect: {destination: '/auth/login', permanent: false}}
+	return {props: {session}}
 }
 interface IProps {
 	title: string
@@ -30,14 +30,10 @@ const RootLayout = ({title, lead, children}: IProps) => {
 			<Topnavbar />
 			<FlashMessageContextProvider>
 				<main>
-<<<<<<< HEAD
 					{flashMessages.length > 0 &&
-
-						flashMessages.map((item, index) => <FlashMessage key={index} flashMessage={item} />)}
-					<Container fluid>
-=======
+						flashMessages.map((item, index) => <FlashMessage key={index} flashMessage={item} />
+						)}
 					<Container>
->>>>>>> 8d907a00569eb2c95cfbd3da519b5c1f007d761d
 						<header className="mt-2">
 							<Header title={title} lead={lead} />
 						</header>
