@@ -1,11 +1,11 @@
 import * as React from 'react'
 import {Container} from 'react-bootstrap'
-import Topnavbar from '@/components/Topnavbar'
 import Header from '@/components/Header'
 import {getSession} from 'next-auth/react'
 import {FootballContextProvider} from '@/context/FootballContext'
 import {FlashMessageContext, FlashMessageContextProvider} from '@/context/FlashMessageContext'
 import FlashMessage from '@/components/FlashMessage'
+import TopNavbar from '@/components/TopNavbar'
 
 export async function getServerSideProps(context) {
 	const session = await getSession({req: context.req})
@@ -27,7 +27,7 @@ const RootLayout = ({title, lead, children}: IProps) => {
 
 	return (
 		<>
-			<Topnavbar />
+			<TopNavbar />
 			<FlashMessageContextProvider>
 				<main>
 					{flashMessages.length > 0 &&
