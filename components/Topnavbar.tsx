@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import {Nav, Navbar, Container, Button} from 'react-bootstrap'
+import {Nav, Navbar, Container, Button, NavDropdown} from 'react-bootstrap'
 import {signOut, useSession} from 'next-auth/react'
 
 const TopNavbar = () => {
@@ -7,7 +7,7 @@ const TopNavbar = () => {
     const {data: session, status} = useSession()
 
     return (
-        <Navbar bg="dark" variant="dark">
+        <Navbar bg="dark" variant="dark" fixed='top' className='mb-2'>
             {/* <Container fluid> */}
             <Container >
                 <Navbar.Brand href="/">Football API</Navbar.Brand>
@@ -16,9 +16,17 @@ const TopNavbar = () => {
                     <Nav className="me-auto">
                         <Link className="nav-link" href="/">Home</Link>
                         {status === "authenticated" && <>
-                            <Link className="nav-link" href="/football/result">Result</Link>
-                            <Link className="nav-link" href="/football/statistics">Statistics</Link>
-                            <Link className="nav-link" href="/user/profile">Profile</Link>
+                            <Link className="nav-link" href="/football/fixtures">Fixtures</Link>
+                            <NavDropdown title="Statistics" id="user-nav-dropdown">
+                                <NavDropdown.Item href="/statistics">Summary</NavDropdown.Item>
+                                <NavDropdown.Item href="/statistics/leagues">Leagues</NavDropdown.Item>
+                                <NavDropdown.Item href="/statistic/teams">Teams</NavDropdown.Item>
+                                <NavDropdown.Item href="/statistic/players">Players</NavDropdown.Item>
+                            </NavDropdown>
+                            <NavDropdown title="Profile" id="user-nav-dropdown">
+                                <NavDropdown.Item href="/user/favorites">Favorites</NavDropdown.Item>
+                                <NavDropdown.Item href="/user/profile">Settings</NavDropdown.Item>
+                            </NavDropdown>
                         </>}
                     </Nav>
                     <Nav>

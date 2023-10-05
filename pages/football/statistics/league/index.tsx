@@ -1,37 +1,23 @@
 import * as React from 'react'
-import { NextPage } from 'next'
-import { getSession, useSession } from 'next-auth/react'
+import {NextPage} from 'next'
+import {getSession, useSession} from 'next-auth/react'
 import RootLayout from '@/layouts/RootLayout'
-import { IStorageCountry, IStorageLeague } from '@/models/mongo/storage.types'
-import {
-	Badge,
-	Button,
-	ButtonGroup,
-	ButtonToolbar,
-	Card,
-	Col,
-	Form,
-	ListGroup,
-	Row,
-	Stack,
-	Table,
-} from 'react-bootstrap'
+import {IStorageCountry, IStorageLeague} from '@/models/mongo/storage.types'
+import {Button, ButtonGroup, ButtonToolbar, Col, ListGroup, Row} from 'react-bootstrap'
 import Image from 'next/image'
 import worldFlag from '@/image/world.svg'
 import StatisticsLayout from '@/layouts/StatisticsLayout'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faAngleDown} from '@fortawesome/free-solid-svg-icons'
 import LeagueListGroupItem from '@/components/football/statistics/LeagueListGroupItem'
-import { Response as IStandingResponse } from '@/models/rapid-api/v3standings'
+import {Response as IStandingResponse} from '@/models/rapid-api/response/v3standings'
 import RapidAPILeagueStanding from '@/components/football/LeagueStanding'
-import FavoriteLeagues from '@/components/football/FavoriteLeagues'
-import { EBootstrapVariant } from '@/models/bootstpap/bs.types'
-import { FlashMessageContext, IFlashMessage } from '@/context/FlashMessageContext'
+import {FlashMessageContext, IFlashMessage} from '@/context/FlashMessageContext'
 
 export async function getServerSideProps(context) {
-	const session = await getSession({ req: context.req })
-	if (!session) return { redirect: { destination: '/auth/login', permanent: false } }
-	return { props: { session } }
+	const session = await getSession({req: context.req})
+	if (!session) return {redirect: {destination: '/auth/login', permanent: false}}
+	return {props: {session}}
 }
 
 interface Props {}
@@ -46,8 +32,8 @@ const Page: NextPage<Props> = ({}) => {
 	const [favoriteLeagues, setFavoriteLeagues] = React.useState<IResponse[]>()
 	const [leaguesApiId, setLeaguesApiId] = React.useState<number[]>([])
 	const [standings, setStandings] = React.useState<IStandingResponse[]>()
-	const { update, data: session, status } = useSession()
-	const { flashMessages, setFlashMessages } = React.useContext(FlashMessageContext)
+	const {update, data: session, status} = useSession()
+	const {flashMessages, setFlashMessages} = React.useContext(FlashMessageContext)
 
 	React.useEffect(() => {
 		fetchStorageFavoritesLeagues()
@@ -59,8 +45,8 @@ const Page: NextPage<Props> = ({}) => {
 	const fetchStorageFavoritesLeagues = async () => {
 		const res = await fetch('/api/football/favorite/leagues', {
 			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ user: session.user['_id'] }),
+			headers: {'Content-Type': 'application/json'},
+			body: JSON.stringify({user: session.user['_id']}),
 		})
 		const json = await res.json()
 		setFavoriteLeagues(json.favorite.leagues)
@@ -101,7 +87,7 @@ const Page: NextPage<Props> = ({}) => {
 		const id = setTimeout(() => controller.abort(), timeout)
 		const res = await fetch(`/api/static/standings/${seasonYear}/${apiId}`, {
 			method: 'GET',
-			headers: { 'Content-Type': 'application/json' },
+			headers: {'Content-Type': 'application/json'},
 			signal: controller.signal,
 		})
 		const json = await res.json()

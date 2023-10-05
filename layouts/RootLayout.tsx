@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Container} from 'react-bootstrap'
+import {Container, Row} from 'react-bootstrap'
 import Header from '@/components/Header'
 import {getSession} from 'next-auth/react'
 import {FootballContextProvider} from '@/context/FootballContext'
@@ -29,21 +29,19 @@ const RootLayout = ({title, lead, children}: IProps) => {
 		<>
 			<TopNavbar />
 			<FlashMessageContextProvider>
-				<main>
-					{flashMessages.length > 0 &&
-						flashMessages.map((item, index) => <FlashMessage key={index} flashMessage={item} />
-						)}
+				<main style={{marginTop: "70px"}}>
 					<Container>
-						<header className="mt-2">
+						<Row as={'header'}>
 							<Header title={title} lead={lead} />
-						</header>
-						<hr />
-						<section className="mt-2">
+							<hr />
+						</Row>
+						<Row>
 							<FootballContextProvider>{children}</FootballContextProvider>
-						</section>
+						</Row>
 					</Container>
 				</main>
-				<footer>
+
+				<section className='position-fixed fixed-bottom'>
 					{flashMessages.length > 0 && (
 						<Container>
 							{flashMessages.map((item, index) => (
@@ -51,8 +49,9 @@ const RootLayout = ({title, lead, children}: IProps) => {
 							))}
 						</Container>
 					)}
-				</footer>
-			</FlashMessageContextProvider>
+				</section>
+
+			</FlashMessageContextProvider >
 		</>
 	)
 }
