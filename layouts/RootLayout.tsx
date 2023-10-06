@@ -31,13 +31,10 @@ const RootLayout = ({title, lead, children}: IProps) => {
 			<FlashMessageContextProvider>
 				<main style={{marginTop: "70px"}}>
 					<Container>
-						<Row as={'header'}>
-							<Header title={title} lead={lead} />
-							<hr />
+						<Row as={'header'} className='mb-2'>
+							<Header title={title.toUpperCase()} lead={lead.toUpperCase()} />
 						</Row>
-						<Row>
-							<FootballContextProvider>{children}</FootballContextProvider>
-						</Row>
+						<FootballContextProvider>{children}</FootballContextProvider>
 					</Container>
 				</main>
 

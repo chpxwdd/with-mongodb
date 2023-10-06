@@ -1,8 +1,9 @@
+
 import * as React from 'react'
 import {NextPage} from 'next'
 import {getSession, useSession} from 'next-auth/react'
 import RootLayout from '@/layouts/RootLayout'
-import {IStorageCountry, IStorageLeague} from '@/models/mongo/storage.types'
+import {ELeagueType, EViewStanding, IStorageCountry, IStorageLeague} from '@/models/mongo/storage.types'
 import {Button, ButtonGroup, ButtonToolbar, Col, ListGroup, Row} from 'react-bootstrap'
 import Image from 'next/image'
 import worldFlag from '@/image/world.svg'
@@ -28,7 +29,7 @@ interface IResponse {
 	country: IStorageCountry
 }
 
-const Page: NextPage<Props> = ({}) => {
+const FootballStatisticsLeaguePage: NextPage<Props> = ({}) => {
 	const [favoriteLeagues, setFavoriteLeagues] = React.useState<IResponse[]>()
 	const [leaguesApiId, setLeaguesApiId] = React.useState<number[]>([])
 	const [standings, setStandings] = React.useState<IStandingResponse[]>()
@@ -105,98 +106,54 @@ const Page: NextPage<Props> = ({}) => {
 		<RootLayout title="Statistics" lead="view statistics">
 			<StatisticsLayout>
 				<Row>
-					<Col lg={4} md={6}>
-						{favoriteLeagues && (
-							<aside>
-								<ButtonToolbar className="shadow-sm border-bottom bg-light p-2 ">
-									<ButtonGroup size="sm">
-										<Button
-											size="sm"
-											variant="primary"
-											onClick={(e) => fetchCheckedStandings()}
-											disabled={!leaguesApiId.length}
-										>
-											{' '}
-											fetch
-										</Button>
-										<Button size="sm" variant="default">
-											{' '}
-											refresh
-										</Button>
-										<Button size="sm" variant="default">
-											{' '}
-											options
-										</Button>
-									</ButtonGroup>
-								</ButtonToolbar>
-								<ListGroup className="list-group-flush m-0">
-									{Object.keys(groupCountries(favoriteLeagues))
-										.map((country_id: string) =>
-											countries(favoriteLeagues).find((item) => item._id === country_id)
-										)
-										.sort((a, b) => (a.name.toUpperCase() < b.name.toUpperCase() ? -1 : 1))
-										.map((country: IStorageCountry) => (
-											<ListGroup.Item key={country._id} className="p-0" action>
-												<div className="d-flex justify-content-between py-1">
-													<div className="d-flex mx-2 align-items-center">
-														<Image
-															src={country?.flag || worldFlag}
-															width={0}
-															height={0}
-															alt={country.name}
-															className="border border-1 border-default rounded rounded-1"
-															style={{
-																objectFit: 'contain',
-																width: '20px',
-																height: 'auto',
-															}}
-														/>
-														<div className="ms-2">{country.name}</div>
-													</div>
-													<div className=" mx-2 align-items-center">
-														<FontAwesomeIcon icon={faAngleDown} />
-													</div>
+					<Col lg={3} md={4}>
+						{favoriteLeagues &&
+							<ListGroup className="list-group-flush m-0 rounded bg-light">
+								{Object.keys(groupCountries(favoriteLeagues))
+									.map((_id: string) => countries(favoriteLeagues).find((item) => item._id === _id))
+									.sort((a, b) => (a.name.toUpperCase() < b.name.toUpperCase() ? -1 : 1))
+									.map((country: IStorageCountry) => (
+										<ListGroup.Item key={country._id} className="p-1 border-0  bg-light">
+											<div className="d-flex justify-content-between py-1 bg-dark text-light rounded">
+												<div className="d-flex mx-2 align-items-center">
+													<Image src={country?.flag || worldFlag} width={0} height={0} alt={country.name} className="border border-1 border-default rounded rounded-1" style={{objectFit: 'contain', width: '20px', height: 'auto', }} />
+													<div className="ms-2">{country.name}</div>
 												</div>
-												<div>
-													<ListGroup className="list-group-flush p-0 mx-0 mt-0 ">
-														{leagues(favoriteLeagues, country._id).map((league) => (
-															<LeagueListGroupItem
-																key={league._id}
-																league={league}
-																leaguesApiId={leaguesApiId}
-																onChange={handleChangeLeague}
-															/>
-														))}
-													</ListGroup>
+												<div className="me-2 align-items-center">
+													<FontAwesomeIcon icon={faAngleDown} />
 												</div>
-											</ListGroup.Item>
-										))}
-								</ListGroup>
-							</aside>
-						)}
+											</div>
+											<div className=''>
+												<ListGroup className="list-group-flush">
+													{leagues(favoriteLeagues, country._id).map((league) => {
+														if (league.type === ELeagueType.CUP) return
+														return <LeagueListGroupItem key={league._id} league={league} leaguesApiId={leaguesApiId} onChange={handleChangeLeague} />
+													})}
+												</ListGroup>
+											</div>
+										</ListGroup.Item>
+									))}
+							</ListGroup>
+						}
 					</Col>
-					<Col lg={8} md={6}>
-						<nav className="justify-content-between border shadow-sm p-2 rounded rounded-2 mb-3 bg-light">
-							<ButtonGroup size="sm">
-								<Button
-									variant="warning"
-									onClick={(e) => fetchCheckedStandings()}
-									disabled={!leaguesApiId.length}
-								>
-									{' '}
-									fetch standing
-								</Button>
-							</ButtonGroup>
-						</nav>
+					<Col lg={3} md={4}>
+						<ButtonGroup size="sm" className='mb-2'>
+							<Button size="sm" variant="primary" onClick={(e) => fetchCheckedStandings()} disabled={!leaguesApiId.length}>fetch</Button>
+							<Button size="sm" variant="default">refresh</Button>
+							<Button size="sm" variant="default">options</Button>
+						</ButtonGroup>
 						{standings &&
 							standings.map((standing: IStandingResponse) => (
-								<RapidAPILeagueStanding league={standing.league} />
+								<RapidAPILeagueStanding league={standing.league} renderView={EViewStanding.THIN} />
 							))}
+					</Col>
+					<Col lg={6} md={4}>
+
 					</Col>
 				</Row>
 			</StatisticsLayout>
-		</RootLayout>
+		</RootLayout >
 	)
 }
 
-export default Page
+export default FootballStatisticsLeaguePage

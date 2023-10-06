@@ -1,6 +1,9 @@
 // @import './bs/custom/bootstrap-ig.scss';
 // @import './tailwind.css';
 @import '~font-awesome/css/font-awesome.css';
-@import './bs/scss/bootstrap.scss';
-// @import './bs/theme/bootstrap.css';
 @import './fonts.scss';
+// @import './bs/scss/bootstrap.scss';  // base bootstrap
+
+// @import './bs/theme/slate/bootstrap.css';
+// @import './bs/theme/flatly/bootstrap.css';
+@import './bs/theme/sandstone/bootstrap.css';

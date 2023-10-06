@@ -4,15 +4,15 @@ import {signOut, useSession} from 'next-auth/react'
 export default () => {
     const {data: session, status} = useSession()
     return (
-        <Navbar bg="light" variant="default" className='mb-3 rounded rounded-2 shadow-sm border '>
-            <Container className=' justify-content-between'>
+        <Navbar bg="dark" variant="dark" className='mb-3 rounded rounded-2 shadow-sm  '>
+            <Container className=' justify-content-between' >
                 <Nav className="me-auto">
-                    <Link className="nav-link" href="/football/statistics">Summary</Link>
-                    <Link className="nav-link" href="/football/statistics/league">Leagues</Link>
-                    <Link className="nav-link" href="/football/statistics/team">Teams</Link>
-                    <Link className="nav-link" href="/football/statistics/player">Players</Link>
+                    <Link className="nav-link" href="/football/statistic">Summary</Link>
+                    <Link className="nav-link" href="/football/statistic/league">Leagues</Link>
+                    <Link className="nav-link" href="/football/statistic/team">Teams</Link>
+                    <Link className="nav-link" href="/football/statistic/player">Players</Link>
                 </Nav>
-            </Container>
+            </Container >
         </Navbar >
     )
 }

@@ -3,10 +3,6 @@ import {NextApiRequest, NextApiResponse} from "next";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     try {
-        const client = await clientPromise;
-        const mongo = client.db(process.env.MONGODB_DATABASE);
-        const teams = await mongo.collection("FootballTeams").find({}).toArray();
-
         res.json({response})
     } catch (e) {console.error(e)}
 }

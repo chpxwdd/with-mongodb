@@ -16,15 +16,15 @@ const TopNavbar = () => {
                     <Nav className="me-auto">
                         <Link className="nav-link" href="/">Home</Link>
                         {status === "authenticated" && <>
-                            <Link className="nav-link" href="/football/fixtures">Fixtures</Link>
+                            <Link className="nav-link" href="/football/fixture">Fixtures</Link>
                             <NavDropdown title="Statistics" id="user-nav-dropdown">
-                                <NavDropdown.Item href="/statistics">Summary</NavDropdown.Item>
-                                <NavDropdown.Item href="/statistics/leagues">Leagues</NavDropdown.Item>
-                                <NavDropdown.Item href="/statistic/teams">Teams</NavDropdown.Item>
-                                <NavDropdown.Item href="/statistic/players">Players</NavDropdown.Item>
+                                <NavDropdown.Item href="/football/statistic">Summary</NavDropdown.Item>
+                                <NavDropdown.Item href="/football/statistic/league">Leagues</NavDropdown.Item>
+                                <NavDropdown.Item href="/football/statistic/team">Teams</NavDropdown.Item>
+                                <NavDropdown.Item href="/football/statistic/player">Players</NavDropdown.Item>
                             </NavDropdown>
                             <NavDropdown title="Profile" id="user-nav-dropdown">
-                                <NavDropdown.Item href="/user/favorites">Favorites</NavDropdown.Item>
+                                <NavDropdown.Item href="/user/favorite">Favorites</NavDropdown.Item>
                                 <NavDropdown.Item href="/user/profile">Settings</NavDropdown.Item>
                             </NavDropdown>
                         </>}

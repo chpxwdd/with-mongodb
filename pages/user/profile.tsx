@@ -4,7 +4,7 @@ import {NextPage} from 'next'
 
 interface Props {}
 
-const Profile: NextPage<Props> = ({}) => {
+const UserProfilePage: NextPage<Props> = ({}) => {
     return <RootLayout title='Profile' lead='user settings'>
         <UserLayout>
             Profile user page
@@ -13,4 +13,4 @@ const Profile: NextPage<Props> = ({}) => {
 
 }
 
-export default Profile
+export default UserProfilePage

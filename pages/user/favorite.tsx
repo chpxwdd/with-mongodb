@@ -23,7 +23,7 @@ export async function getServerSideProps(context) {
 
 interface IProps {}
 
-const Profile: NextPage<IProps> = ({}: IProps) => {
+const UserFaforitePage: NextPage<IProps> = ({}: IProps) => {
     return <RootLayout title="Profile" lead="personalization data">
         <Container>
             <FavoriteEditor />
@@ -32,5 +32,5 @@ const Profile: NextPage<IProps> = ({}: IProps) => {
 
 }
 
-export default Profile
+export default UserFaforitePage
 

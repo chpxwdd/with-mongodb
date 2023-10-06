@@ -41,12 +41,11 @@ export interface IStorageSeason {
 }
 
 export interface IStorageTeam {
-    _id?: string
+    _id: string | null
     __v?: number
     api_id: number;
     logo: string;
     name: string;
-    league: number[]
 }
 export interface IStorageCountryLeagueSeason {
     country: IStorageCountry;
@@ -55,15 +54,17 @@ export interface IStorageCountryLeagueSeason {
 }
 
 export interface IStorageFavorite {
-    _id: string,
+    _id: string | null,
     _user_id: string,
     countries: string[]
     leagues: string[]
     seasons: string[]
     teams: string[]
-    // countries: IStorageCountry[]
-    // leagues: IStorageLeague[]
-    // seasons: IStorageSeason[]
-    // teams: IStorageTeam[]
 
+}
+
+export enum EViewStanding {
+    SHORT = 'short',
+    THIN = 'thin',
+    FAT = 'fat'
 }

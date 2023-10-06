@@ -24,7 +24,7 @@ interface IResponse {
 	country: IStorageCountry
 }
 
-const Statistics: NextPage<Props> = ({}) => {
+const FootballStatisticsPage: NextPage<Props> = ({}) => {
 	const [favoriteLeagues, setFavoriteLeagues] = React.useState<IResponse[]>()
 	const [leaguesApiId, setLeaguesApiId] = React.useState<number[]>([])
 	const {update, data: session, status} = useSession()
@@ -151,4 +151,4 @@ const Statistics: NextPage<Props> = ({}) => {
 		</RootLayout>
 	)
 }
-export default Statistics
+export default FootballStatisticsPage

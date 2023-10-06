@@ -1,4 +1,4 @@
-import { ELeagueType } from '@/models/mongo/storage.types'
+import {ELeagueType} from '@/models/mongo/storage.types'
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -33,6 +33,7 @@ export default {
 		api_id: 558,
 		name: 'Spartak Moscow',
 		logo: 'https://media-3.api-sports.io/football/teams/558.png',
+		league: []
 	},
 	FAVORITES: {
 		_id: '65103d437b0df7be9d3b265c',
@@ -46,5 +47,5 @@ export default {
 
 export const requestOptions = {
 	method: 'POST',
-	headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+	headers: {'Content-Type': 'application/json', Accept: 'application/json'},
 }
