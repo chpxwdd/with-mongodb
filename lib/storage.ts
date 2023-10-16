@@ -1,5 +1,5 @@
 import {EStorageFavorite} from "@/constants/storage";
-import {ITeam} from "@/models/mongo/raidapi.types";
+import {IRapidTeam} from "@/models/mongo/rapid-api.types";
 import {IStorageFavorite, IStorageLeague, IStorageTeam, IStorageUser} from "@/models/mongo/storage.types";
 import {ObjectId} from "mongodb";
 
@@ -38,7 +38,7 @@ export const addFavorite = async (user: ObjectId, _id: ObjectId, module: EStorag
 }
 
 
-export const hasStorageFavoriteTeam = (team: ITeam | IStorageTeam, storageFavorite: IStorageFavorite) => {
+export const hasStorageFavoriteTeam = (team: IRapidTeam | IStorageTeam, storageFavorite: IStorageFavorite) => {
     const id = isITeam(team) ? team.id : team.api_id
     return storageFavorite[EStorageFavorite.TEAM]?.includes(String(id))
 }
@@ -77,7 +77,7 @@ export const fetchLeagueTeams = async (league_api_id: Number, cb: React.Dispatch
 }
 
 
-export const isStorageTeam = (team: ITeam, storageTeams) => storageTeams?.map(item => String(item.api_id)).includes(String(team.id))
+export const isStorageTeam = (team: IRapidTeam, storageTeams) => storageTeams?.map(item => String(item.api_id)).includes(String(team.id))
 
-const isITeam = (team: any): team is ITeam => true
+const isITeam = (team: any): team is IRapidTeam => true
 const isIStorageTeam = (team: any): team is IStorageTeam => true

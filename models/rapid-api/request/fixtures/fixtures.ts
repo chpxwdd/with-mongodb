@@ -4,7 +4,7 @@ export enum EFixtureLive {
 
 export interface IInputFixtures {
     id?: number
-    live?: string | EFixtureLive.ALL
+    live?: string // | EFixtureLive.ALL
     date?: Date
     league?: number
     season?: number

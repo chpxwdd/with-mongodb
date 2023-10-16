@@ -6,6 +6,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faSave} from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
 import {FootballContext} from '@/context/FootballContext';
+import TeamTitle from '@/components/common/TeamTitle';
 interface IProps {
 
 }
@@ -15,10 +16,9 @@ interface IProps {
     renderView: EViewStanding
 }
 
-export default ({standing, renderView}: IProps) => {
+const LeagueStandingGrid = ({standing, renderView}: IProps) => {
 
     const {league, setLeague, team, setTeam} = React.useContext(FootballContext)
-
     const handleRowClick = (e: React.MouseEvent<Element, MouseEvent>, team: ITeam) => {
         e.preventDefault()
         setTeam({
@@ -34,15 +34,17 @@ export default ({standing, renderView}: IProps) => {
     }
 
     return (
-        <Table className='table-hover table-light mb-2 mt-0' size='sm' style={{whiteSpace: 'nowrap', width: "100%"}}>
+        <Table className='table-hover table-sm mb-2 mt-0'
+            style={{whiteSpace: 'nowrap', fontSize: "85%"}}
+        >
+            {/*
             <thead>
                 <tr>
-                    {/* <th className='text-center' style={{width: "50px"}}></th> */}
+                    <th></th>
                     <th className="text-center fw-light text-muted" style={{width: "20px"}}>#</th>
-                    <th>Team</th>
+                    <th className='w-100'>Team</th>
                     <th className="text-center" style={{width: "5%"}}>p</th>
-                    {
-                        (renderView === EViewStanding.FAT) &&
+                    {renderView === EViewStanding.FAT &&
                         <>
                             <th className="text-center" style={{width: "5%"}}>Diff</th>
                             <th className="text-center" style={{width: "5%"}}>Gf</th>
@@ -55,44 +57,28 @@ export default ({standing, renderView}: IProps) => {
                     }
                 </tr>
             </thead>
+                */}
             <tbody>
                 {standing.map((row, index) => {
                     const {all, goalsDiff, team, rank, points} = row
                     return (
                         <tr key={index}
-                            className='text-center align-items-center'
+                            className='text-center'
                             style={{cursor: "pointer"}}
                             onClick={(e) => handleRowClick(e, team)}>
-                            {/* <td className='text-right'><FontAwesomeIcon icon={faSave} className="text-success" />/td> */}
-                            <td className="py-1 text-muted"><small>{rank}</small></td>
-                            <td className="py-1 text-start">
-                                <div className='d-flex align-items-center  justify-content-between'>
-                                    <div className='d-flex'>
-                                        <Form.Check className='text-warning  align-items-end' checked={true} onChange={(e) => onChange(e, team.id)} />
-                                        <Image src={team?.logo || ""}
-                                            alt={team.name}
-                                            width={0} height={0}
-                                            className='mx-2 mt-1'
-                                            style={{objectFit: "contain", width: 'auto', height: "auto"}}
-                                        />
-                                        {team.name}
-                                    </div>
-                                    <div>
-                                        <Badge pill bg='warning' className='mx-2 fw-light p-1'><small>{team.id}</small></Badge>
-                                    </div>
-                                </div>
-                            </td>
+                            <td><Form.Check onChange={(e) => onChange(e, team.id)} /></td>
+                            {/* <td className="text-body-tertiary">{rank}</td> */}
+                            <td className="text-start w-100"><TeamTitle team={{...team, _id: null, api_id: team.id}} /></td>
                             <td className="py-1">{points}</td>
-                            {
-                                (renderView === EViewStanding.FAT) &&
+                            {renderView === EViewStanding.FAT &&
                                 <>
                                     <td className="py-1">{goalsDiff}</td>
-                                    <td className="py-1 text-success">{all.goals.for}</td>
-                                    <td className="py-1 text-danger">{all.goals.against}</td>
+                                    <td className="text-success">{all.goals.for}</td>
+                                    <td className="text-danger">{all.goals.against}</td>
                                     <td className="py-1">{all.played}</td>
-                                    <td className="py-1 text-danger">{all.lose}</td>
-                                    <td className="py-1 text-warning">{all.draw}</td>
-                                    <td className="py-1 text-success">{all.win}</td>
+                                    <td className="text-danger">{all.lose}</td>
+                                    <td className="text-warning">{all.draw}</td>
+                                    <td className="text-success">{all.win}</td>
                                 </>
                             }
                         </tr>
@@ -103,3 +89,4 @@ export default ({standing, renderView}: IProps) => {
     )
 }
 
+export default LeagueStandingGrid

@@ -13,6 +13,7 @@ export interface Paging {
 }
 
 export interface Parameters {
+    league: string;
     season: string;
     team: string;
 }
@@ -22,24 +23,11 @@ export interface Response {
     goals: Goals;
     league: League;
     score: Score;
-    teams: {
-        home: {
-            id: number;
-            logo: string;
-            name: string;
-            winner: boolean | null;
-        }
-        away: {
-            id: number;
-            logo: string;
-            name: string;
-            winner: boolean | null;
-        }
-    };
+    teams: Goals;
 }
 
 export interface Fixture {
-    date: string;
+    date: Date;
     id: number;
     periods: Periods;
     referee: null | string;
@@ -60,23 +48,27 @@ export interface Status {
     short: string;
 }
 
-
 export interface Venue {
-    city: null | string;
-    id: number | null;
-    name: null | string;
+    city: string;
+    id: number;
+    name: string;
 }
 
 export interface Goals {
-    away: number | null;
-    home: number | null;
+    away: GoalsVersus | number | null;
+    home: GoalsVersus | number | null;
 }
 
-
+export interface GoalsVersus {
+    id: number;
+    logo: string;
+    name: string;
+    winner: boolean | null;
+}
 
 export interface League {
     country: string;
-    flag: null | string;
+    flag: string;
     id: number;
     logo: string;
     name: string;

@@ -1,4 +1,4 @@
-import {ICountry, ILeague, ISeason, ITeam} from "./raidapi.types";
+import {ICountry, ILeague, ISeason, IRapidTeam} from "./rapid-api.types";
 
 export enum EFootballAPIEndpoints {
 	PLAYERS = 'players',
@@ -15,7 +15,7 @@ export interface IServerResponse {
 		league?: ILeague | null,
 		seasons?: ISeason[] | [],
 		season?: ISeason | null,
-		teams?: ITeam[] | [],
-		team?: ITeam | null
+		teams?: IRapidTeam[] | [],
+		team?: IRapidTeam | null
 	}
 }

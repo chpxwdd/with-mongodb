@@ -4,7 +4,7 @@ export default function Document() {
 	return (
 		<Html lang="en">
 			<Head />
-			<body className='bg-light' style={{fontSize: "13px"}}>
+			<body>
 				<Main />
 				<NextScript />
 			</body>

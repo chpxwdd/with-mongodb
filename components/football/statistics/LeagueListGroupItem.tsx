@@ -18,10 +18,10 @@ const LeagueListGroupItem = ({league, leaguesApiId, onChange}: IProps) => {
     const isChecked: boolean = leaguesApiId.includes(league.api_id)
 
     return (
-        <ListGroup.Item className='p-0' action>
-            <div className='d-flex py-1 align-items-center  bg-light justify-content-between'>
+        <ListGroup.Item action>
+            <div className='d-flex align-items-center justify-content-between'>
                 <div className='d-flex'>
-                    <Form.Check className='ms-2 text-warning  align-items-end' checked={leaguesApiId.includes(league.api_id)} onChange={(e) => onChange(e, league.api_id)} />
+                    <Form.Check className='text-warning  align-items-end' checked={leaguesApiId.includes(league.api_id)} onChange={(e) => onChange(e, league.api_id)} />
                     <Image src={league?.logo || worldFlag}
                         alt={league.name}
                         width={0} height={0}

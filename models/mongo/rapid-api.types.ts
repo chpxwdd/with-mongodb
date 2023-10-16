@@ -36,7 +36,7 @@ export interface ISeason {
 }
 
 
-export interface ITeam {
+export interface IRapidTeam {
     id: number;
     logo: string;
     name: string;

@@ -4,16 +4,18 @@ import {NextPage} from 'next'
 import {getSession, useSession} from 'next-auth/react'
 import RootLayout from '@/layouts/RootLayout'
 import {ELeagueType, EViewStanding, IStorageCountry, IStorageLeague} from '@/models/mongo/storage.types'
-import {Button, ButtonGroup, ButtonToolbar, Col, ListGroup, Row} from 'react-bootstrap'
+import {Accordion, Badge, Button, ButtonGroup, ButtonToolbar, Col, Dropdown, DropdownButton, Form, ListGroup, Row} from 'react-bootstrap'
 import Image from 'next/image'
 import worldFlag from '@/image/world.svg'
 import StatisticsLayout from '@/layouts/StatisticsLayout'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faAngleDown} from '@fortawesome/free-solid-svg-icons'
-import LeagueListGroupItem from '@/components/football/statistics/LeagueListGroupItem'
-import {Response as IStandingResponse} from '@/models/rapid-api/response/v3standings'
-import RapidAPILeagueStanding from '@/components/football/LeagueStanding'
+import {Response as IStandingResponse, Standing as IStanding} from '@/models/rapid-api/response/v3standings'
 import {FlashMessageContext, IFlashMessage} from '@/context/FlashMessageContext'
+import LeagueStanding from '@/components/football/LeagueStanding'
+import CountryTitle from '@/components/common/CountryTitle'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faDownload, faGear, faRefresh} from '@fortawesome/free-solid-svg-icons'
+import {FOOTBALL_API_RPM} from '@/constants/rapid-api'
+import {fetchStandings} from '@/lib/rapid-api/standings'
 
 export async function getServerSideProps(context) {
 	const session = await getSession({req: context.req})
@@ -40,8 +42,8 @@ const FootballStatisticsLeaguePage: NextPage<Props> = ({}) => {
 		fetchStorageFavoritesLeagues()
 	}, [])
 
-	// React.useEffect(() => {console.log("leagues", favoriteLeagues)}, [favoriteLeagues])
-	// React.useEffect(() => {console.log("standings", standings)}, [standings])
+	// React.useEffect(() => {console.log('leagues', favoriteLeagues)}, [favoriteLeagues])
+	// React.useEffect(() => {console.log('standings', standings)}, [standings])
 
 	const fetchStorageFavoritesLeagues = async () => {
 		const res = await fetch('/api/football/favorite/leagues', {
@@ -69,21 +71,27 @@ const FootballStatisticsLeaguePage: NextPage<Props> = ({}) => {
 
 	const fetchCheckedStandings = () => {
 		setStandings([])
-		leaguesApiId.forEach((api_id) => fetchStandings(api_id, 2023))
+		leaguesApiId.forEach(async (api_id) => {
+			const leagueStanding = await fetchStandings({league: api_id, season: 2023})
+
+			setStandings((prev) => [...prev, leagueStanding])
+		})
 	}
 
-	const fetchStandings = async (apiId: number, seasonYear: number) => {
+	{/* const fetchStandings = async (apiId: number, seasonYear: number) => {
+	
+	
 		// const res = await fetch(FOOTBALL_API_ENDPOINT.concat('/standings').concat(`?league=${apiId}&season=${seasonYear}`), {
 		//     method: 'GET',
 		//     headers: {
-		//         "X-RapidAPI-Key": X_RAPIDAPI_KEY,
-		//         "X-RapidAPI-Host": X_RAPIDAPI_HOST
+		//         'X-RapidAPI-Key': X_RAPIDAPI_KEY,
+		//         'X-RapidAPI-Host': X_RAPIDAPI_HOST
 		//     },
 		// })
 		// const json = await res.json()
 		// setStandings(prev => [...prev, json.response])
 
-		const timeout = 1000
+		const timeout = Math.round(60 * 1000 / FOOTBALL_API_RPM)
 		const controller = new AbortController()
 		const id = setTimeout(() => controller.abort(), timeout)
 		const res = await fetch(`/api/static/standings/${seasonYear}/${apiId}`, {
@@ -93,9 +101,10 @@ const FootballStatisticsLeaguePage: NextPage<Props> = ({}) => {
 		})
 		const json = await res.json()
 		clearTimeout(id)
-		// console.log("fetchStanding ", apiId, json);
+		// console.log('fetchStanding ', apiId, json);
 		setStandings((prev) => [...prev, json.response.response[0]])
 	}
+	*/}
 
 	const countries = (data: IResponse[]): IStorageCountry[] => data.map((item) => item.country)
 
@@ -103,52 +112,55 @@ const FootballStatisticsLeaguePage: NextPage<Props> = ({}) => {
 		data.map((item) => item.league).filter((item) => item.country === countryId)
 
 	return (
-		<RootLayout title="Statistics" lead="view statistics">
+		<RootLayout title='Leagues' lead='statistics'>
 			<StatisticsLayout>
-				<Row>
-					<Col lg={3} md={4}>
+				<Row className='leaguesPage'>
+					<Col lg={6} md={6}>
+
+						<ButtonToolbar className='justify-content-end' aria-label='toolbar leagues actions'>
+							<ButtonGroup size='sm' className='mb-2' aria-label=''>
+								<Button size='sm'
+									variant='outline-primary'
+									onClick={(e) => fetchCheckedStandings()}
+								>
+									<FontAwesomeIcon icon={faDownload} className="me-2" />Fetch checked
+								</Button>
+								<Button size='sm'
+									variant='outline-primary'
+								>
+									<FontAwesomeIcon icon={faRefresh} className="me-2" /> Refresh
+								</Button>
+							</ButtonGroup>
+						</ButtonToolbar>
 						{favoriteLeagues &&
-							<ListGroup className="list-group-flush m-0 rounded bg-light">
+							<Accordion defaultActiveKey={Object.keys(groupCountries(favoriteLeagues))[0]} flush={true} alwaysOpen={true}>
 								{Object.keys(groupCountries(favoriteLeagues))
 									.map((_id: string) => countries(favoriteLeagues).find((item) => item._id === _id))
 									.sort((a, b) => (a.name.toUpperCase() < b.name.toUpperCase() ? -1 : 1))
 									.map((country: IStorageCountry) => (
-										<ListGroup.Item key={country._id} className="p-1 border-0  bg-light">
-											<div className="d-flex justify-content-between py-1 bg-dark text-light rounded">
-												<div className="d-flex mx-2 align-items-center">
-													<Image src={country?.flag || worldFlag} width={0} height={0} alt={country.name} className="border border-1 border-default rounded rounded-1" style={{objectFit: 'contain', width: '20px', height: 'auto', }} />
-													<div className="ms-2">{country.name}</div>
-												</div>
-												<div className="me-2 align-items-center">
-													<FontAwesomeIcon icon={faAngleDown} />
-												</div>
-											</div>
-											<div className=''>
-												<ListGroup className="list-group-flush">
-													{leagues(favoriteLeagues, country._id).map((league) => {
-														if (league.type === ELeagueType.CUP) return
-														return <LeagueListGroupItem key={league._id} league={league} leaguesApiId={leaguesApiId} onChange={handleChangeLeague} />
-													})}
+										<Accordion.Item eventKey={country._id} key={country._id}>
+											<Accordion.Header as='div'>
+												<CountryTitle country={country} />
+											</Accordion.Header>
+											<Accordion.Body className='p-1' as='div' >
+												<ListGroup className='list-group-flush'>
+													{leagues(favoriteLeagues, country._id)
+														.filter(item => item.type !== ELeagueType.CUP)
+														.map((league: IStorageLeague) =>
+															<ListGroup.Item key={league._id} className='p-0'>
+																<LeagueStanding league={league}>
+																	<Form.Check checked={true} onChange={(e) => handleChangeLeague(e, league.api_id)} />
+																</LeagueStanding>
+															</ListGroup.Item >
+														)}
 												</ListGroup>
-											</div>
-										</ListGroup.Item>
+											</Accordion.Body>
+										</Accordion.Item>
 									))}
-							</ListGroup>
+							</Accordion>
 						}
 					</Col>
-					<Col lg={3} md={4}>
-						<ButtonGroup size="sm" className='mb-2'>
-							<Button size="sm" variant="primary" onClick={(e) => fetchCheckedStandings()} disabled={!leaguesApiId.length}>fetch</Button>
-							<Button size="sm" variant="default">refresh</Button>
-							<Button size="sm" variant="default">options</Button>
-						</ButtonGroup>
-						{standings &&
-							standings.map((standing: IStandingResponse) => (
-								<RapidAPILeagueStanding league={standing.league} renderView={EViewStanding.THIN} />
-							))}
-					</Col>
-					<Col lg={6} md={4}>
-
+					<Col lg={6} md={6}>
 					</Col>
 				</Row>
 			</StatisticsLayout>
