@@ -48,14 +48,17 @@
 },
 {
   "_id": {
-    "$oid": "64ef06bbecfaf649a19c0b5f"
+    "$oid": "652ee0a0762a224313dc7e4c"
   },
-  "email": "msg4cherep@gmail.com",
-  "password": "$2a$12$BZjxGjE83a7.kt9v.QlimuBm52XcJofSRSmaRbL8SCfnje6vhg3yu",
-  "roles": [
+  "email": "anfis@gmail.com",
+  "username": "anfis",
+  "password": "$2a$12$l39ac04/3ZBsvhUf3EGZV.PnzHznpsVU57ACZ/b/15/RTTIAco/LO",
+  "role": [
     {
-      "$oid": "5cc2f8f9b5805d1bb04bd9fa"
+      "$oid": "5cc2f8f9b5805d1bb04bd9fb"
     }
   ],
-  "__v": 0
+  "do_create": {
+    "$date": "2023-10-17T19:29:36.348Z"
+  }
 }]

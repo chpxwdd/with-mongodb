@@ -30,7 +30,7 @@ const RootLayout = ({title, lead, children}: IProps) => {
 			<TopNavbar />
 			<FlashMessageContextProvider>
 				<main style={{marginTop: "70px"}}>
-					<Container>
+					<Container >
 						<Row as={'header'} className='mb-2'>
 							<Header title={title.toUpperCase()} lead={lead.toUpperCase()} />
 						</Row>

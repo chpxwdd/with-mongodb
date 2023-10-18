@@ -9,7 +9,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         // console.log("gerFavoriteUser for user: ", req.body.user)
         const client = await clientPromise;
         const mongo = client.db(process.env.MONGODB_DATABASE);
-        const favorite = await mongo.collection(EStorageCollection.FAVORITE).find({user: new ObjectId(req.body.user)}).toArray();
-        res.json({favorite: favorite[0]})
+        const favorite = await mongo.collection(EStorageCollection.FAVORITE).findOne({user: new ObjectId(req.body.user)});
+        res.json({favorite})
     } catch (e) {console.error(e)}
 }

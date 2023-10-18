@@ -35,7 +35,7 @@ let footballInitialContext: IFootballContext = {
 }
 export const FootballContext = React.createContext<IFootballContext>(footballInitialContext)
 
-export const FootballContextProvider = ({ children }: { children: React.ReactNode }) => {
+export const FootballContextProvider = ({children}: {children: React.ReactNode}) => {
 	const [country, setCountry] = React.useState<IStorageCountry>(footballInitialContext.country)
 	const [league, setLeague] = React.useState<IStorageLeague>(footballInitialContext.league)
 	const [season, setSeason] = React.useState<IStorageSeason>(footballInitialContext.season)

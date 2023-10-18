@@ -3,10 +3,11 @@ import {compare} from 'bcryptjs';
 import CredentialsProvider from "next-auth/providers/credentials";
 import {NextApiRequest} from 'next';
 import clientPromise from '@/lib/mongodb';
+import {EStorageCollection} from '@/constants/storage';
 const authorize: any = async (credentials: Record<string, string>, req: NextApiRequest) => {
     const client = await clientPromise
     const db = client.db()
-    const users = db.collection('CoreUser')
+    const users = db.collection(EStorageCollection.USER)
     const {email, password} = credentials as {email: string, password: string}
     const result = await users.findOne({email})
     if (!result) throw new Error('No user found with the email')
@@ -33,7 +34,7 @@ export default NextAuth({
         // async jwt({token, user, account, profile, isNewUser}) {return token},
         session: async ({session, user, token}: any) => {
             const client = await clientPromise;
-            const userData = await client.db().collection('CoreUser').findOne({email: session.user.email});
+            const userData = await client.db().collection(EStorageCollection.USER).findOne({email: session.user.email});
             if (!userData) throw new Error("user not found for append session!")
             return {...session, user: {...userData}}
         }

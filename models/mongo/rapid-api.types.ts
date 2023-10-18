@@ -1,18 +1,18 @@
-export interface ICountry {
+export interface IRapidCountry {
     code: null | string,
     flag: null | string
     name: string,
 }
 
 
-export interface ILeague {
+export interface IRapidLeague {
     id: number;
     logo: string;
     name: string;
     type: string;
 }
 
-export interface ISeason {
+export interface IRapidSeason {
     coverage: {
         fixtures: {
             events: boolean;
@@ -42,13 +42,24 @@ export interface IRapidTeam {
     name: string;
 }
 export interface ICountryLeagueSeason {
-    country: ICountry;
-    league: ILeague;
-    seasons: ISeason[]
+    country: IRapidCountry;
+    league: IRapidLeague;
+    seasons: IRapidSeason[]
+}
+export interface IRapidCounryLeagueSeason {
+    country: IRapidCountry;
+    league: IRapidLeague;
+    seasons: IRapidSeason[]
 }
 
 
 
 export interface IRapidStanding {
+
+}
+export interface IRapidPlayer {
+
+}
+export interface IRapidFixture {
 
 }

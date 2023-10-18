@@ -1,5 +1,5 @@
 import StatisticsNavbar from '@/components/StatisticsNavbar'
-import {FootballContextProvider} from '@/context/FootballContext'
+import {RapidContextProvider} from '@/context/RapidContext'
 import Link from 'next/link'
 import * as React from 'react'
 import {Container, Nav, Navbar, Row} from 'react-bootstrap'
@@ -13,7 +13,8 @@ const StatisticsLayout = ({children}: ILayoutProps) => {
     return (
         <>
             <StatisticsNavbar />
-            {children}
+            <RapidContextProvider>{children}</RapidContextProvider>
+            {/* {children} */}
         </>
     )
 }

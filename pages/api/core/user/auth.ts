@@ -8,8 +8,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     try {
 
         if (req.method !== 'POST') {
-            // console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-            res.status(500).json({message: 'Route not valid'});
+            res.status(500).json({message: 'method is not valid'});
             return
         }
 
